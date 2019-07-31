@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd ../../usr/bin
+chmod +x MainApp_UT
+chmod +x hal_platform_UT
+killall MainApp
+CMOCKA_XML_FILE=cm_%g.xml CMOCKA_MESSAGE_OUTPUT=xml ./MainApp_UT
+killall hal_platform
+CMOCKA_XML_FILE=cm_%g.xml CMOCKA_MESSAGE_OUTPUT=xml ./hal_platform_UT
